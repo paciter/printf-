@@ -6,7 +6,7 @@ int     ft_format(va_list *args const char str)
     i = 0;
 
     if(str == 'c')
-        i = i +
+        i = i + ft_putchar(va_args(args, int));
    else if(str == 'd')
         i = i +
     else if(str == 's')
