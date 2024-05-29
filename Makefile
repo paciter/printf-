@@ -1,4 +1,5 @@
-SRCS = 
+SRCS = ft_printf.c\
+		ft_printf_utils.c\
 
 AR = ar rcs
 CC = cc

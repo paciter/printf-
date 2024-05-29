@@ -1,33 +1,35 @@
 
-int     ft_sort(const char *str)
+int     ft_format(va_list *args const char str)
 {
     int i;
 
     i = 0;
 
-    if (str[i] == '%')
-    {
-        if(str[i + 1] == 'c' || str[i + 1] == 'd')
-            //metre le return int 
-        if(str[i + 1] == 's')
-            // mettre le return string
-        if(str[i + 1] == 'x')
-            //mettre le return en hexa en lowercase 
-         if(str[i + 1] == 'X')
-            //mettre en hexa uppercase 
-        if(str[i + 1] == 'p')
-            // hexa 
-        if(str[i + 1] == 'u')
-            //unsigned
-        if(str[i + 1] == 'i')
-            // mettre en int base 10
-         if(str[i + 1] == '%')
-            // mettre un %   
+    if(str == 'c')
+        i = i +
+   else if(str == 'd')
+        i = i +
+    else if(str == 's')
+         i = i +
+     else if(str == 'x')
+         i = i +
+      else if(str == 'X')
+          i = i +
+     else if(str == 'p')
+         i = i +
+     else if(str == 'u')
+         i = i +
+     else if(str == 'i')
+         i = i +
+      else if(str == '%')
+         i = i +
     }
 }
 
 
-int ft_printf(const char *, ...)
+int ft_printf(const char *str, ...)
 {
+    va_list args;
 
+    va_start(args, str);
 }
