@@ -1,6 +1,7 @@
 SRCS = ft_printf.c\
 		ft_printf_utils.c\
-
+		ft_hex.c\
+		
 AR = ar rcs
 CC = cc
 RM = rm -f

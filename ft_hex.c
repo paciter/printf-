@@ -20,8 +20,8 @@ int	ft_putnbrbase(unsigned long nbr, char *base)
 	if (size < 2)
 		return (0);
 	if (nbr >= size)
-		len = len + ft_putnbrbase(nbr / size, base);
-	len = len + ft_putchar(base[nbr % size]);
+		len =+ ft_putnbrbase(nbr / size, base);
+	len =+ ft_putchar(base[nbr % size]);
 	return (len);
 }
 
@@ -34,8 +34,8 @@ int	ft_printptrhex(void *ptr)
 	len = 0;
 	len = len + ft_putstr("0x");
 	if (address == 0)
-		len = len + ft_putchar('0');
+		len =+ ft_putchar('0');
 	else
-		len = len + ft_putnbrbase(address, "0123456789abcdef", 16);
+		len =+ ft_putnbrbase(address, "0123456789abcdef", 16);
 	return (len);
 }

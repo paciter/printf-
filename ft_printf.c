@@ -16,28 +16,44 @@ int	ft_format(va_list *args const char str)
 
 	i = 0;
 	if (str == 'c')
-		i = i + ft_putchar(va_args(args, int));
+		i =+ ft_putchar(va_args(args, int));
 	else if (str == 'd')
-		i = i + ft_putnbr(va_arg(args, int));
+		i =+ ft_putnbr(va_arg(args, int));
 	else if (str == 's')
-		i = i + ft_putstr(va_arg(args, char *));
+		i =+ ft_putstr(va_arg(args, char *));
 	else if (str == 'x')
-		i = i + ft_putnbrbase(va_arg(args, unsigned int), "0123456789abcdef");
+		i =+ ft_putnbrbase(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (str == 'X')
-		i = i + ft_putnbrbase(va_arg(args, unsigned int), "0123456789ABCDEF");
+		i =+ ft_putnbrbase(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (str == 'p')
-		i = i + ft_printptrhex(va_arg(args, unsigned long));
+		i =+ ft_printptrhex(va_arg(args, unsigned long));
 	else if (str == 'u')
-		i = i + ft_putnbr_un(va_arg(args, unsigned int));
+		i =+ ft_putnbr_un(va_arg(args, unsigned int));
 	else if (str == 'i')
-		i = i + ft_putnbr(va_arg(args, int));
+		i =+ ft_putnbr(va_arg(args, int));
 	else if (str == '%')
-		i = i + ft_putchar('%');
+		i =+ ft_putchar('%');
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
+	int		i;
+	int		len;
 
 	va_start(args, str);
+	i = 0;
+	len = 0;
+	while(str[i])
+	{
+		if(str[i] == "%")
+		{
+			len =+ ft_format(args, str[i + 1]);
+			i++;
+		}
+		else
+			len =+ ft_putchar(str[i]);
+	}
+	va_end(args)
+	return(len);
 }
