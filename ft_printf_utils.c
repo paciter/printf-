@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftlibft_utils.c                                    :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rufaccia <rufaccia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:59:33 by rufaccia          #+#    #+#             */
-/*   Updated: 2024/06/07 14:13:13 by rufaccia         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:34:07 by rufaccia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ftprintf.h"
 
 int	ft_strlen(char *str)
 {
@@ -35,7 +37,7 @@ int	ft_putstr(char *s)
 	len = 0;
 	i = 0;
 	if (!s)
-		return ;
+		return;
 	while (s[i])
 	{
 		len = ft_putchar(s[i]);
@@ -58,7 +60,7 @@ int	ft_putnbr(int n)
 		len = len + t_putchar('-');
 		n = -n;
 	}
-	if (nb > 9)
+	if (n > 9)
 	{
 		len = len + ft_putnbr(n / 10);
 		ft_putchar((n % 10) + '0');

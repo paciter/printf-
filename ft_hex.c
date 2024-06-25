@@ -6,9 +6,11 @@
 /*   By: rufaccia <rufaccia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:59:25 by rufaccia          #+#    #+#             */
-/*   Updated: 2024/06/07 14:07:51 by rufaccia         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:13:24 by rufaccia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ftprintf.h"
 
 int	ft_putnbrbase(unsigned long nbr, char *base)
 {
