@@ -12,7 +12,35 @@
 
 #include "ftprintf.h"
 
-int	ft_format(va_list *args, const char str)
+int	ft_format(va_list args, const char format)
+{
+	int	len;
+
+	len = 0;
+	if (format == 'c')
+		len += ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		len += ft_putstr(va_arg(args, char *));
+	else if (format == 'p')
+		len += ft_nbrbase(va_arg(args, unsigned long), "0123456789abcdef",
+				true);
+	else if (format == 'd' || format == 'i')
+		len += ft_putnbr(va_arg(args, int));
+	else if (format == 'u')
+		len += ft_putnbr_un(va_arg(args, unsigned int));
+	else if (format == 'x')
+		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789abcdef",
+				false);
+	else if (format == 'X')
+		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789ABCDEF",
+				false);
+	else if (format == '%')
+		len += ft_putchar('%');
+	return (len);
+}
+
+
+/*int	ft_format(va_list *args, const char str)
 {
 	int	i;
 
@@ -36,7 +64,7 @@ int	ft_format(va_list *args, const char str)
 	else if (str == '%')
 		i += ft_putchar('%');
 	return(i);
-}
+}*/
 
 int	ft_printf(const char *str, ...)
 {
@@ -44,14 +72,15 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	int		len;
 
-	va_start(args, str);
+	
 	i = 0;
 	len = 0;
+	va_start(args, str);
 	while(str[i])
 	{
-		if(str[i] == '%' && str[i + 1] != '\0')
+		if(str[i] == '%)
 		{
-			len += ft_format(&args, str[i + 1]);
+			len += ft_format(args, str[i + 1]);
 			i++;
 		}
 		else
