@@ -23,17 +23,14 @@ int	ft_format(va_list args, const char format)
 		len += ft_putstr(va_arg(args, char *));
 	else if (format == 'p')
 		len += ft_nbrbase(va_arg(args, unsigned long), "0123456789abcdef",
-				true);
 	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
 		len += ft_putnbr_un(va_arg(args, unsigned int));
 	else if (format == 'x')
 		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789abcdef",
-				false);
 	else if (format == 'X')
 		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789ABCDEF",
-				false);
 	else if (format == '%')
 		len += ft_putchar('%');
 	return (len);
